@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <color name="black">#FF000000</color>
+    <color name="white">#EAEAEA</color>
+    <color name="dark_blue">#22222C</color>
+    <color name="grey_blue">#2A2C39</color>
+    <color name="light_blue_grey">#53586F</color>
+    <color name="lighter">#B9BBC9</color>
+    <color name="white_grey">#B9BBC9</color>
+    <color name="navbar">#1F1F28</color>
+
+    <drawable name="gradient_text_drawable">@drawable/gradient_red</drawable>
+    <color name="gradient_text_color" android:color="@drawable/gradient_text_drawable" />
+
+</resources>
