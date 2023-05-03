@@ -17,7 +17,7 @@ import com.example.mealz.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment(),CellClickListener {
     lateinit var binding: FragmentHomeBinding
-    private lateinit var myAdapter: RestaurantsListAdapter // declare adapter here
+
 
 
     override fun onCreateView(
@@ -27,7 +27,6 @@ class HomeFragment : Fragment(),CellClickListener {
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

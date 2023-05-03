@@ -8,18 +8,23 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
+import com.example.mealz.databinding.FragmentHomeBinding
 
 import com.example.mealz.databinding.FragmentProfileBinding
 
 
-class ProfileFragment : Fragment() {
+class  ProfileFragment : Fragment() {
     lateinit var binding: FragmentProfileBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {// Inflate the layout
-        binding = FragmentProfileBinding.inflate(layoutInflater)// for this fragment
+    ): View? {
+        binding = FragmentProfileBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         // Retrieve the value of the isLoggedIn key from SharedPreferences
         val sharedPreferences = requireContext().getSharedPreferences("my_app", Context.MODE_PRIVATE)
@@ -34,6 +39,5 @@ class ProfileFragment : Fragment() {
             editor.apply()
             this.findNavController().navigate(R.id.action_profileFragment_to_homeFragment)
         }
-       return binding.root
     }
 }

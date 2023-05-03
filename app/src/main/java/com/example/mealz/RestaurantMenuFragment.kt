@@ -11,6 +11,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.mealz.databinding.FragmentHomeBinding
 import com.example.mealz.databinding.FragmentRestaurantMenuBinding
 
 class RestaurantMenuFragment : Fragment() , MenuItemClickListener{
@@ -22,19 +23,24 @@ class RestaurantMenuFragment : Fragment() , MenuItemClickListener{
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_restaurant_menu, container, false)
+        binding = FragmentRestaurantMenuBinding.inflate(inflater, container, false)
+        return binding.root
+
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         val myRecyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
         val layoutManager = LinearLayoutManager(context)
         myRecyclerView.layoutManager = layoutManager
         val restaurantId = arguments?.getInt("Res")
         val myAdapter =
-            restaurantId?.let { loadData(it)?.let { MenuItemsAdapter(it,requireContext(),this) } }
+            restaurantId?.let { loadData(it)?.let { MenuItemsAdapter(it, requireContext(), this) } }
         myRecyclerView.adapter = myAdapter
-
-        return view
     }
 
-    fun loadData(idRes:Int): List<MenuItem>? {
+        fun loadData(idRes:Int): List<MenuItem>? {
         var data = mutableListOf<MenuItem>()
         data = appDataBase.buildDatabase(requireContext())?.getMenuItemDAO()?.getMenuItemsByRes(idRes) as MutableList<MenuItem>
 

@@ -1,5 +1,5 @@
 package com.example.mealz
-
+// THIS IS AN OLD ACTIVITY ... (SIGN UP)
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
