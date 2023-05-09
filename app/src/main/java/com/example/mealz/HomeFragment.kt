@@ -32,9 +32,9 @@ class HomeFragment : Fragment(),CellClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val screen = requireActivity().intent.getStringExtra("screen")
-        if(screen == "cart"){
+       /* if(screen == "cart"){
             view.findNavController().navigate(R.id.cartFragment)
-        }
+        }*/
 
         val layoutManager = LinearLayoutManager(context)
         binding.recyclerView.layoutManager = layoutManager

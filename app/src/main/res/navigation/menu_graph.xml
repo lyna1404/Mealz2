@@ -50,6 +50,8 @@
         tools:layout="@layout/fragment_menu_item_details" >
         <action
             android:id="@+id/action_menuItemDetailsFragment_to_cartFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true"
             app:destination="@id/cartFragment" />
     </fragment>
     <activity
