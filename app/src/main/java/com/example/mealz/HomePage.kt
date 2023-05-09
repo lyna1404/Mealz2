@@ -31,11 +31,7 @@ class HomePage : AppCompatActivity() {
         navController = navHostFragment.navController
         binding.navBottom.itemIconTintList = null
         NavigationUI.setupWithNavController(binding.navBottom, navController)
-        // Initialisation des Shared_preferences
-        val sharedPreferences = getSharedPreferences("my_app", Context.MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
-        editor.putBoolean("isLoggedIn", false)
-        editor.apply()
+
 
     }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -46,13 +42,11 @@ class HomePage : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
            when (item.itemId) {
-
-
-
         }
         return super.onOptionsItemSelected(item)
 
     }
+    // For the gradient design  (color of text)
     fun setGradientTextColor(textView: TextView, startColor: Int, endColor: Int) {
         textView.setTextColor(endColor)
         val textShader: Shader = LinearGradient(

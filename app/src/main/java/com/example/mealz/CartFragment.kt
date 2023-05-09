@@ -29,13 +29,17 @@ class CartFragment : Fragment(){
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentCartBinding.inflate(layoutInflater)
+        binding = FragmentCartBinding.inflate(inflater, container, false)
+
+
+
+        return binding.root
+        }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         val myRecyclerView = binding.recyclerView
         val layoutManager = LinearLayoutManager(context)
         myRecyclerView.layoutManager = layoutManager
-
-
-
         val data = loadData(1)
         myAdapter = data?.let { cartItemsAdapter(it, requireContext()) } ?: cartItemsAdapter(
             mutableListOf(),
@@ -45,13 +49,12 @@ class CartFragment : Fragment(){
         data?.let { countTotalFees(it) }?.let { updateTotalFees(it) }
         //  binding.name6.text = data?.let { (countTotalFees(it)+500.00).toString() }
         binding.cart3.setOnClickListener() {
-            val sharedPreferences =
-                requireContext().getSharedPreferences("my_app", Context.MODE_PRIVATE)
+            val sharedPreferences = requireContext().getSharedPreferences("my_app", Context.MODE_PRIVATE)
             val isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false)
             if (isLoggedIn) {
+                // Delete cart if logged In
                 val num: Int? = appDataBase.buildDatabase(requireContext())?.getUserCartDAO()
                     ?.deleteAllUserCart(1)
-
                 if (num != null && num != 0) {
                     Toast.makeText(
                         requireContext(),
@@ -63,25 +66,19 @@ class CartFragment : Fragment(){
                     myAdapter.notifyDataSetChanged()
                 }
 
-            } else {  // Create a bundle to pass the menuItem object as an argument to the fragment_signIn fragment
+            } else {  // Start a new activity ... Log In
                 val intent = Intent(activity, LogIn::class.java)
                 intent.putExtra("screen", "cart")
                 startActivity(intent)
             }
+
         }
-
-        return binding.root
-        }
-
-
-    fun loadData(id:Int): MutableList<MenuItem>? { // load data only if logged in
-        val sharedPreferences = requireContext().getSharedPreferences("my_app", Context.MODE_PRIVATE)
-        val isLoggedIn = sharedPreferences.getBoolean("isLoggedIn",false)
+    }
+// Function to load data from local db
+    fun loadData(id:Int): MutableList<MenuItem>? {
         var data = mutableListOf<MenuItem>()
-        if (isLoggedIn) {
-            data = appDataBase.buildDatabase(requireContext())?.getUserCartDAO()
+        data = appDataBase.buildDatabase(requireContext())?.getUserCartDAO()
                 ?.getItemsForUser(id) as MutableList<MenuItem>
-        }
         return data
     }
 
