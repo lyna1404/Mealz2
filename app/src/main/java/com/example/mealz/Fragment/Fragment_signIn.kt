@@ -1,13 +1,12 @@
-package com.example.mealz
+package com.example.mealz.Fragment
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.Toast
-import androidx.navigation.fragment.findNavController
-import com.example.mealz.databinding.FragmentHomeBinding
+import com.example.mealz.Entity.UserCart
+import com.example.mealz.appDataBase
 import com.example.mealz.databinding.FragmentSignInBinding
 
 
@@ -30,11 +29,9 @@ class fragment_signIn : Fragment() {
         binding.buttonLogin.setOnClickListener {
             val email = binding.emailField.text.toString()
             val password = binding.passwordField.text.toString()
-            val userBDD = appDataBase.buildDatabase(requireContext())?.getUserEItemDAO()
-                ?.getUserByemail(email)
-            if (email == userBDD?.email && password == userBDD?.password) {
+            if (email == "userBDD?.email" && password == "userBDD?.password") {
                 val idMenu = arguments?.getInt("mId")
-                val user = idMenu?.let { UserCart(id_menu = it, id_user = userBDD.idUser) }
+                val user = idMenu?.let { UserCart(id_menu = it, id_user = 1) }
                 user?.let {
                     appDataBase.buildDatabase(requireContext())?.getUserCartDAO()
                         ?.insertUserCart(it)

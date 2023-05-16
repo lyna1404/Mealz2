@@ -1,8 +1,11 @@
-package com.example.mealz
+package com.example.mealz.Entity
 
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
+import com.example.mealz.Entity.MenuItem
+import com.example.mealz.Entity.User
+
 @Entity(tableName = "CartMenu",foreignKeys = [
     ForeignKey(
         entity = MenuItem::class,

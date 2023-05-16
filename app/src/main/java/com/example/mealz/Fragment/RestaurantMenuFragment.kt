@@ -1,20 +1,22 @@
-package com.example.mealz
+package com.example.mealz.Fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.mealz.databinding.FragmentHomeBinding
+import com.example.mealz.Adapter.MenuItemsAdapter
+import com.example.mealz.Entity.MenuItem
+import com.example.mealz.Adapter.MenuItemClickListener
+import com.example.mealz.R
+import com.example.mealz.appDataBase
 import com.example.mealz.databinding.FragmentRestaurantMenuBinding
 
-class RestaurantMenuFragment : Fragment() , MenuItemClickListener{
+class RestaurantMenuFragment : Fragment() , MenuItemClickListener {
 
     lateinit var binding: FragmentRestaurantMenuBinding
 
@@ -42,7 +44,7 @@ class RestaurantMenuFragment : Fragment() , MenuItemClickListener{
 
         fun loadData(idRes:Int): List<MenuItem>? {
         var data = mutableListOf<MenuItem>()
-        data = appDataBase.buildDatabase(requireContext())?.getMenuItemDAO()?.getMenuItemsByRes(idRes) as MutableList<MenuItem>
+     //   data = appDataBase.buildDatabase(requireContext())?.getMenuItemDAO()?.getMenuItemsByRes(idRes) as MutableList<MenuItem>
 
     return data
     }

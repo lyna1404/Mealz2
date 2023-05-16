@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/cartFragment"
-        android:name="com.example.mealz.CartFragment"
+        android:name="com.example.mealz.Fragment.CartFragment"
         android:label="Cart"
         tools:layout="@layout/fragment_cart" >
         <action
@@ -18,7 +18,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.mealz.HomeFragment"
+        android:name="com.example.mealz.Fragment.HomeFragment"
         android:label="Home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.mealz.ProfileFragment"
+        android:name="com.example.mealz.Fragment.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" >
         <action
@@ -36,7 +36,7 @@
     </fragment>
     <fragment
         android:id="@+id/restaurantMenuFragment"
-        android:name="com.example.mealz.RestaurantMenuFragment"
+        android:name="com.example.mealz.Fragment.RestaurantMenuFragment"
         android:label="fragment_restaurant_menu"
         tools:layout="@layout/fragment_restaurant_menu" >
         <action
@@ -45,7 +45,7 @@
     </fragment>
     <fragment
         android:id="@+id/menuItemDetailsFragment"
-        android:name="com.example.mealz.MenuItemDetailsFragment"
+        android:name="com.example.mealz.Fragment.MenuItemDetailsFragment"
         android:label="fragment_menu_item_details"
         tools:layout="@layout/fragment_menu_item_details" >
         <action

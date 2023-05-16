@@ -1,6 +1,8 @@
 package com.example.mealz
 
 import androidx.room.*
+import com.example.mealz.Entity.MenuItem
+import com.example.mealz.Entity.UserCart
 
 @Dao
 interface UserCartDAO {

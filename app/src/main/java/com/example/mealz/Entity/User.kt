@@ -1,4 +1,4 @@
-package com.example.mealz
+package com.example.mealz.Entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

@@ -7,11 +7,13 @@ import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.mealz.Adapter.CellClickListener
 import com.example.mealz.databinding.RestaurantsLayoutBinding
 
 class RestaurantsListAdapter(
     val data: List<Restaurant>, var ctx: Context,
-    val cellClickListener: CellClickListener):RecyclerView.Adapter<RestaurantsListAdapter.MyViewHolder>() {
+    val cellClickListener: CellClickListener
+):RecyclerView.Adapter<RestaurantsListAdapter.MyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         return MyViewHolder(RestaurantsLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false))

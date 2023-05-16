@@ -1,4 +1,4 @@
-package com.example.mealz
+package com.example.mealz.Fragment
 
 import android.content.Context
 import android.os.Bundle
@@ -6,9 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
-import com.example.mealz.databinding.FragmentHomeBinding
+import com.example.mealz.R
 
 import com.example.mealz.databinding.FragmentProfileBinding
 

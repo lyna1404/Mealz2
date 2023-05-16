@@ -26,8 +26,7 @@ class LogIn : AppCompatActivity() {
 
             val email = binding.emailField.text.toString()
             val password = binding.passwordField.text.toString()
-            val userBDD = appDataBase.buildDatabase(this)?.getUserEItemDAO()?.getUserByemail(email)
-            if (email == userBDD?.email && password == userBDD?.password) {
+            if (email == "userBDD?.email" && password == "userBDD?.password") {
                 val sharedPreferences = getSharedPreferences("my_app", Context.MODE_PRIVATE)
                 sharedPreferences.edit{
                     putBoolean("isLoggedIn", true)
