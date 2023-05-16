@@ -1,21 +1,19 @@
-package com.example.mealz
+package com.example.mealz.Fragment
 
-import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.example.mealz.*
+import com.example.mealz.Adapter.CellClickListener
 import com.example.mealz.databinding.FragmentHomeBinding
 
 
-class HomeFragment : Fragment(),CellClickListener {
+class HomeFragment : Fragment(), CellClickListener {
     lateinit var binding: FragmentHomeBinding
 
 
@@ -32,9 +30,9 @@ class HomeFragment : Fragment(),CellClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val screen = requireActivity().intent.getStringExtra("screen")
-        if(screen == "cart"){
+       /* if(screen == "cart"){
             view.findNavController().navigate(R.id.cartFragment)
-        }
+        }*/
 
         val layoutManager = LinearLayoutManager(context)
         binding.recyclerView.layoutManager = layoutManager
@@ -44,7 +42,7 @@ class HomeFragment : Fragment(),CellClickListener {
 
     fun loadData(): List<Restaurant>? {
 var data = mutableListOf<Restaurant>()
-        data = appDataBase.buildDatabase(requireContext())?.getRestaurantDao()?.getRestaurantsAll()!!
+       // data = appDataBase.buildDatabase(requireContext())?.getRestaurantDao()?.getRestaurantsAll()!!
         return data
 
       }

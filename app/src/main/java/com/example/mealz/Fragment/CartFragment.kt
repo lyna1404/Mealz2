@@ -1,25 +1,19 @@
-package com.example.mealz
+package com.example.mealz.Fragment
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.LinearGradient
-import android.graphics.Shader
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
-import androidx.core.content.ContentProviderCompat.requireContext
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.example.mealz.Adapter.cartItemsAdapter
+import com.example.mealz.Entity.MenuItem
+import com.example.mealz.LogIn
+import com.example.mealz.appDataBase
 import com.example.mealz.databinding.FragmentCartBinding
-import com.example.mealz.databinding.FragmentHomeBinding
-import com.example.mealz.databinding.FragmentSignInBinding
 
 class CartFragment : Fragment(){
     lateinit var binding: FragmentCartBinding

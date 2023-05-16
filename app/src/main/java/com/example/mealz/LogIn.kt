@@ -26,17 +26,17 @@ class LogIn : AppCompatActivity() {
 
             val email = binding.emailField.text.toString()
             val password = binding.passwordField.text.toString()
-            val userBDD = appDataBase.buildDatabase(this)?.getUserEItemDAO()?.getUserByemail(email)
-            if (email == userBDD?.email && password == userBDD?.password) {
+            if (email == "userBDD?.email" && password == "userBDD?.password") {
                 val sharedPreferences = getSharedPreferences("my_app", Context.MODE_PRIVATE)
-                val editor = sharedPreferences.edit{
+                sharedPreferences.edit{
                     putBoolean("isLoggedIn", true)
                 }
                 // Redirect to cart page
-                val intent = Intent(this,HomePage::class.java)
+                /*val intent = Intent(this,HomePage::class.java)
                 intent.putExtra("screen",screen)
                 startActivity(intent)
-
+                */
+                finish()
 
 
             } else {
