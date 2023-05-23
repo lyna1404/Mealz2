@@ -7,6 +7,74 @@
     android:background="@color/dark_blue"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/poppins_light"
+        android:text="Sign In"
+        android:textAllCaps="false"
+        android:textColor="#B9BBC9"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView21" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="45dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/poppins_light"
+        android:text="Already have an account?"
+        android:textAllCaps="false"
+        android:textColor="#B9BBC9"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="40dp"
+        android:src="@drawable/instagram_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageView13"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <ImageView
+        android:id="@+id/imageView13"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/facebook_logo"
+        app:layout_constraintEnd_toStartOf="@+id/imageView14"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:fontFamily="@font/poppins_light"
+        android:text="or continue using"
+        android:textAllCaps="false"
+        android:textColor="#B9BBC9"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/view11"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/view13"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
+
     <ImageView
         android:id="@+id/restaurant_logo"
         android:layout_width="0dp"
@@ -33,11 +101,12 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.05" />
 
+
     <TextView
         android:id="@+id/header"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/poppins_medium"
         android:text="Welcome to Mealz, We’d like to know more about you"
         android:textAlignment="center"
@@ -48,33 +117,37 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:layout_constraintWidth_percent="0.8" />
 
-    <TextView
-        android:id="@+id/subheader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/poppins_medium"
-        android:text="First, we'll need some basic information"
-        android:textColor="@color/white_grey"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header" />
 
     <View
-        android:layout_width="290dp"
-        android:layout_height="2dp"
+        android:id="@+id/view13"
+        android:layout_width="100dp"
+        android:layout_height="1dp"
+
+        android:layout_marginTop="30dp"
+        android:background="@drawable/gradient_red"
+        app:circularflow_radiusInDP="2dp"
+        app:layout_constraintEnd_toStartOf="@+id/textView9"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
+
+    <View
+        android:id="@+id/view11"
+        android:layout_width="100dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/gradient_red"
         app:circularflow_radiusInDP="2dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/subheader" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 
     <EditText
         android:id="@+id/Name_field"
         android:layout_width="0dp"
         android:layout_height="48dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/custom_input_field"
         android:drawableStart="@drawable/user"
         android:drawablePadding="8dp"
@@ -83,12 +156,12 @@
         android:inputType="textPersonName"
         android:paddingHorizontal="20dp"
         android:paddingVertical="10dp"
-        android:text="Name"
+        android:hint="Username"
         android:textColor="@color/white_grey"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/subheader"
+        app:layout_constraintTop_toBottomOf="@+id/header"
         app:layout_constraintWidth_percent="0.8" />
 
     <EditText
@@ -104,7 +177,7 @@
         android:inputType="textEmailAddress"
         android:paddingHorizontal="20dp"
         android:paddingVertical="10dp"
-        android:text="Email"
+        android:hint="Email"
         android:textColor="@color/white_grey"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -125,7 +198,7 @@
         android:inputType="textPassword"
         android:paddingHorizontal="20dp"
         android:paddingVertical="10dp"
-        android:text="Password"
+        android:hint="Password"
         android:textColor="@color/white_grey"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -139,14 +212,14 @@
         android:layout_height="48dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/custom_input_field"
-        android:drawableStart="@drawable/phone"
+        android:drawableStart="@drawable/map_pin_grey"
         android:drawablePadding="8dp"
         android:ems="10"
         android:fontFamily="@font/poppins_regular"
+        android:hint="Address"
         android:inputType="phone"
         android:paddingHorizontal="20dp"
         android:paddingVertical="10dp"
-        android:text="Phone"
         android:textColor="@color/white_grey"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -154,16 +227,22 @@
         app:layout_constraintTop_toBottomOf="@+id/Password_field"
         app:layout_constraintWidth_percent="0.8" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/gradient_red"
-        android:fontFamily="@font/poppins_bold"
-        android:text="Next"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/custom_button"
+        android:fontFamily="@font/poppins_regular"
+        android:minWidth="0dp"
+        android:minHeight="48dp"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="6dp"
+        android:text="Sign Up"
         android:textAllCaps="false"
+        android:textColor="@color/white"
         android:textSize="16sp"
+        app:circularflow_radiusInDP="2dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"

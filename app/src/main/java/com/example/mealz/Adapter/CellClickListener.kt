@@ -1,6 +1,6 @@
 package com.example.mealz.Adapter
 
-import com.example.mealz.Restaurant
+import com.example.mealz.Entity.Restaurant
 
 
 interface CellClickListener {
