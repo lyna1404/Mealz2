@@ -1,7 +1,8 @@
 package com.example.mealz.Adapter
 
-import com.example.mealz.Entity.MenuItem
+import com.example.mealz.Entity.Menu
+
 
 interface MenuItemClickListener {
-    fun onCellClickListener(data: MenuItem)
+    fun onCellClickListener(data: Menu)
 }

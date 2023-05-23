@@ -9,15 +9,15 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.mealz.Adapter.cartItemsAdapter
-import com.example.mealz.Entity.MenuItem
+import com.example.mealz.Adapter.CartItemsAdapter
+import com.example.mealz.Entity.UserCart
 import com.example.mealz.LogIn
 import com.example.mealz.appDataBase
 import com.example.mealz.databinding.FragmentCartBinding
 
 class CartFragment : Fragment(){
     lateinit var binding: FragmentCartBinding
-    private lateinit var myAdapter: cartItemsAdapter
+    private lateinit var myAdapter: CartItemsAdapter
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -28,20 +28,20 @@ class CartFragment : Fragment(){
 
 
         return binding.root
-        }
+    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val myRecyclerView = binding.recyclerView
         val layoutManager = LinearLayoutManager(context)
         myRecyclerView.layoutManager = layoutManager
         val data = loadData(1)
-        myAdapter = data?.let { cartItemsAdapter(it, requireContext()) } ?: cartItemsAdapter(
+        myAdapter = data?.let { CartItemsAdapter(it, requireContext()) } ?: CartItemsAdapter(
             mutableListOf(),
             requireContext()
         )
         myRecyclerView.adapter = myAdapter
         data?.let { countTotalFees(it) }?.let { updateTotalFees(it) }
-        //  binding.name6.text = data?.let { (countTotalFees(it)+500.00).toString() }
+        binding.name6.text = data?.let { (countTotalFees(it)+500.00).toString() }
         binding.cart3.setOnClickListener() {
             val sharedPreferences = requireContext().getSharedPreferences("my_app", Context.MODE_PRIVATE)
             val isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false)
@@ -68,33 +68,32 @@ class CartFragment : Fragment(){
 
         }
     }
-// Function to load data from local db
-    fun loadData(id:Int): MutableList<MenuItem>? {
-        var data = mutableListOf<MenuItem>()
+    // Function to load data from local db
+    fun loadData(id:Int): MutableList<UserCart>? {
+        var data = mutableListOf<UserCart>()
         data = appDataBase.buildDatabase(requireContext())?.getUserCartDAO()
-                ?.getItemsForUser(id) as MutableList<MenuItem>
+            ?.getUserCart(id) as MutableList<UserCart>
         return data
     }
 
 
-        fun countTotalFees(menuItems: List<MenuItem>): Double {
-            var totalFees = 0.0
-            for (menuItem in menuItems) {
-                totalFees += menuItem.price
-            }
-            return totalFees
+    fun countTotalFees(menuItems: List<UserCart>): Double {
+        var totalFees = 0.0
+        for (menuItem in menuItems) {
+            totalFees += menuItem.Prix_unitare!!
         }
+        return totalFees
+    }
     fun updateTotalFees(totalFees: Double) {
         if (totalFees == 0.0) {
-            binding.name6.text = (totalFees).toString() + " DA"
+            binding.name6.text = "${totalFees} DA"
+
         }
         else{
-            binding.name6.text = (totalFees+500).toString() + " DA"
+            binding.name6.text = "${totalFees+500} DA"
+
         }
         myAdapter.notifyDataSetChanged()
     }
 
 }
-
-
-

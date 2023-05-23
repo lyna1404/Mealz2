@@ -5,7 +5,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.mealz.Entity.MenuItem
+
 import com.example.mealz.Entity.UserCart
 
 @Database(entities = [UserCart::class], exportSchema = false,version = 1)

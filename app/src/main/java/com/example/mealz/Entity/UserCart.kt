@@ -3,28 +3,18 @@ package com.example.mealz.Entity
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
-import com.example.mealz.Entity.MenuItem
-import com.example.mealz.Entity.User
 
-@Entity(tableName = "CartMenu",foreignKeys = [
-    ForeignKey(
-        entity = MenuItem::class,
-        parentColumns = ["idMenu"],
-        childColumns = ["id_menu"],
-        onUpdate = ForeignKey.CASCADE,
-        onDelete = ForeignKey.CASCADE
-    ),
-    ForeignKey(
-        entity = User::class,
-        parentColumns = ["idUser"],
-        childColumns = ["id_user"],
-        onUpdate = ForeignKey.CASCADE,
-        onDelete = ForeignKey.CASCADE
-    ),
-])
+
+@Entity(tableName = "CartMenu")
 data class UserCart(
     @PrimaryKey(autoGenerate = true)
-    val id: Int = 0,
-    val id_menu: Int,
-    val id_user: Int
+    val ID: Int = 0,
+    val IDUtilisateur: Int,
+    val IDMenu: Int,
+    val IDRestaurant:Int,
+    val Quantity: Int?,
+    val Nom:String?,
+    val Prix_unitare:Float?,
+    val Image:String?,
+    val Nom_TMenu:String?,
 )
