@@ -1,0 +1,94 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model commande {
+  ID_Commande       Int     @id
+  Prix_Commande     Int?
+  Adresse_livraison String? @db.VarChar(120)
+  Prix_Tolal        Int?
+  Frais_Livraison   Int?
+  ID_Utilisateur    Int
+
+  @@index([ID_Utilisateur], map: "ID_1")
+}
+
+model commande_menu {
+  ID_Commande Int
+  ID_Menu     Int
+  Size        Int?
+  Quantit_    String? @map("Quantité") @db.VarChar(50)
+
+  @@id([ID_Commande, ID_Menu])
+  @@index([ID_Menu], map: "ID_1")
+}
+
+model menu {
+  ID_Menu       Int     @id
+  Nom           String? @db.VarChar(50)
+  Prix_unitare  Float?  @db.Float
+  Ingredients   String? @db.VarChar(1000)
+  Image         String? @db.VarChar(120)
+  ID_Restaurant Int
+  ID_TMenu      Int
+
+  @@index([ID_Restaurant], map: "ID_1")
+}
+
+model rating {
+  ID_Utilisateur Int
+  ID_Restaurant  Int
+  Rating         Decimal? @db.Decimal(5, 2)
+  Commentaire    String?  @db.VarChar(120)
+
+  @@id([ID_Utilisateur, ID_Restaurant])
+  @@index([ID_Restaurant], map: "ID_1")
+}
+
+model restaurant {
+  ID_Restaurant Int      @id
+  Nom           String?  @db.VarChar(50)
+  Localisation  String?  @db.VarChar(500)
+  Facebook_Web  String?  @db.VarChar(500)
+  Facebook_App  String?  @db.VarChar(500)
+  Instagram_Web String?  @db.VarChar(500)
+  Instagram_App String?  @db.VarChar(500)
+  Mail          String?  @db.VarChar(500)
+  Image         String?  @db.VarChar(500)
+  Rating        Decimal? @db.Decimal(5, 2)
+  Phone_number  String?  @db.VarChar(15)
+  Latitude      String?  @db.VarChar(100)
+  Longitude     String?  @db.VarChar(100)
+}
+
+model type {
+  ID_Type  Int     @id
+  Nom_Type String? @db.VarChar(50)
+}
+
+model utilisateur {
+  ID_Utilisateur Int     @id @default(autoincrement())
+  Nom            String? @db.VarChar(50)
+  Prenom         String? @db.VarChar(50)
+  Mail           String? @db.VarChar(100)
+  Adresse        String? @db.VarChar(120)
+  Password       String? @db.VarChar(200)
+}
+
+model restaurant_types {
+  ID_Restaurant Int
+  ID_Type       Int
+
+  @@id([ID_Restaurant, ID_Type])
+  @@index([ID_Type], map: "ID_Type")
+}
+
+model type_menu {
+  ID_TMenu  Int     @id
+  Nom_TMenu String? @db.VarChar(50)
+}
